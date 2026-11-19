@@ -24,4 +24,4 @@ Generada: 2026-11-19 00:06  ·  **completa**
 - ✅ Figuras PNG (series, log-log, periodicidad, robustez, resumen): 19/19
 - ✅ Tabla resumen por corrida (summary.md / .csv)
 - ✅ Resultados generados con los CSV actuales (SHA-256)
-- ✅ Informe: Informe_Autosimilitud_LAN.docx, Informe_Autosimilitud_LAN.pdf
+- ✅ Informe en formato IEEE: Informe_Autosimilitud_LAN.pdf (fuente LaTeX en 4_Informe/latex/)

@@ -4,7 +4,7 @@ Entrega del taller "Autosimilitud en trazas de tráfico LAN": captura de tráfic
 (**emulada**: network namespaces de Linux + bridge, como Mininet), estimación del parámetro de Hurst por
 varianza agregada, control por 30 permutaciones, robustez (Δ = 0.10 s y dos repeticiones) y periodicidad.
 
-**Informe:** [`4_Informe/Informe_Autosimilitud_LAN.pdf`](4_Informe/Informe_Autosimilitud_LAN.pdf)
+**Informe (formato IEEE):** [`4_Informe/Informe_Autosimilitud_LAN.pdf`](4_Informe/Informe_Autosimilitud_LAN.pdf) · fuente LaTeX en [`4_Informe/latex/`](4_Informe/latex/)
 
 ## Resultado en una línea por escenario
 
@@ -20,7 +20,7 @@ varianza agregada, control por 30 permutaciones, robustez (Δ = 0.10 s y dos rep
 | `1_Montaje_y_adquisicion/` | Diagrama, comandos, versiones, ventanas (t0), cronogramas, pérdidas y registros de cada corrida |
 | `2_Datos_y_codigo/` | Capturas PCAP, CSV exportados con TShark, código reproducible y `COMO_EJECUTAR.md` |
 | `3_Graficas_y_tabla/` | 19 figuras (PNG 300 DPI + PDF), tablas (`summary.md`, `summary.csv`…) y `params.json` |
-| `4_Informe/` | Informe en PDF y Word |
+| `4_Informe/` | Informe en formato IEEE (PDF) y su fuente LaTeX (IEEEtran) |
 
 `LISTA_DE_VERIFICACION.md` muestra que todos los elementos de la guía están presentes.
 
