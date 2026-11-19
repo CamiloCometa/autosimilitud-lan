@@ -1,0 +1,5 @@
+run,scenario,rep,file,sha256,t0_epoch,t0_source,window_s,packets_total_csv,packets_unexpected,main_packets_in_window,main_packets_before_t0,main_packets_after_window,main_first_rel_s,main_last_rel_s,warnings
+E1_R1,E1,R1,E1_R1.csv,d77bcf11a7f8936de4e8eeb1bb1726202e14fd266db7f9c483f7f3ab77054ff2,1795062526.711621000,primer datagrama recibido,600.0,250001,0,250001,0,0,0.0,599.998396,
+E1_R2,E1,R2,E1_R2.csv,f02ff01310fb3ba2478a54285da095195baf7d0c747f5286a505175b723adbd7,1795062528.718929000,primer datagrama recibido,600.0,250001,0,250001,0,0,0.0,599.999387,
+E2_R1,E2,R1,E2_R1.csv,1e2fc5134504171452ad894f20c471dbfa2b5b6da442e2686da652e29b732c63,1795063137.800753224,archivo de ventanas,600.0,239642,0,239642,0,0,3.004551776,586.003140776,
+E2_R2,E2,R2,E2_R2.csv,e0a142b8cd1d44ff76b13892fdb9d224a7b074653509d8cf5009932defcb45de,1795063748.885284103,archivo de ventanas,600.0,229650,0,229650,0,0,2.004709897,579.009362897,

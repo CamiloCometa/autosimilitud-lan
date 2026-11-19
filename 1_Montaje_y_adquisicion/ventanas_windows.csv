@@ -1,0 +1,4 @@
+# t0 de E2 con el reloj de C (anfitrión de la emulación)
+run,t0,duration_s
+E2_R1,1795063137.800753224,600
+E2_R2,1795063748.885284103,600

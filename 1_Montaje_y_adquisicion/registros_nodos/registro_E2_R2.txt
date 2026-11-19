@@ -1,0 +1,104 @@
+[23:49:03] creando topología: 3 hosts + switch (bridge)
+$ ip link add bre2r2 type bridge
+$ ip link set bre2r2 up
+$ ip netns add e2r2a
+$ ip link add e2r2a type veth peer name e2r2a-s
+$ ip link set e2r2a netns e2r2a
+$ ip link set e2r2a-s master bre2r2
+$ ip link set e2r2a-s up
+$ [A] ip link set e2r2a name eth0
+$ [A] ip addr add 192.168.50.11/24 dev eth0
+$ [A] ip link set eth0 up
+$ [A] ip link set lo up
+$ ip netns add e2r2b
+$ ip link add e2r2b type veth peer name e2r2b-s
+$ ip link set e2r2b netns e2r2b
+$ ip link set e2r2b-s master bre2r2
+$ ip link set e2r2b-s up
+$ [B] ip link set e2r2b name eth0
+$ [B] ip addr add 192.168.50.12/24 dev eth0
+$ [B] ip link set eth0 up
+$ [B] ip link set lo up
+$ ip netns add e2r2c
+$ ip link add e2r2c type veth peer name e2r2c-s
+$ ip link set e2r2c netns e2r2c
+$ ip link set e2r2c-s master bre2r2
+$ ip link set e2r2c-s up
+$ [C] ip link set e2r2c name eth0
+$ [C] ip addr add 192.168.50.13/24 dev eth0
+$ [C] ip link set eth0 up
+$ [C] ip link set lo up
+$ [A] ping -c 5 -i 0.2 192.168.50.13
+$ [B] ping -c 5 -i 0.2 192.168.50.13
+$ [A] ip -br addr
+$ [B] ip -br addr
+$ [C] ip -br addr
+$ [C] iperf3 -s -p 5201
+$ [C] iperf3 -s -p 5202
+$ [C] tcpdump -i eth0 -nn -s 128 -w E2_R2.pcap 'udp and dst host 192.168.50.13 and (dst port 5201 or dst port 5202)'
+[23:49:08] E2: t0 (reloj de C) = 1795063748.885284103; ráfagas A=31, B=33
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 15 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 7 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 14 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 2 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 2 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 3 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 14 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 15 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 11 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 5 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 5 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 9 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 10 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 8 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 17 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 7 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 13 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 1 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 5 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 13 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 2 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 5 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 2 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 1 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 4 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 8 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 20 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 6 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 4 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 13 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 16 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 15 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 10 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 11 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 5 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 5 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 1 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 17 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 6 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 15 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 18 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 2 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 17 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 9 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 8 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 4 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 7 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 15 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 2 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 4 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 10 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 17 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 4 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 6 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 8 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 17 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 18 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 3 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 2 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 7 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 5 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 12 --json
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 13 --json
+$ [B] iperf3 -c 192.168.50.13 -p 5202 -u -b 4M -l 1200 -t 1 --json
+[23:59:13] E2: fin 1795064353.885459052; pérdidas A 0/112499, B 0/117085; descartes de captura 0

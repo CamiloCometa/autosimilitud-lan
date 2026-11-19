@@ -1,0 +1,7 @@
+== Anfitrión de la emulación   fecha: 2026-11-19 04:49:02 UTC
+PRETTY_NAME="Ubuntu 24.04.5 LTS"
+kernel: 6.18.44-fc-v653
+iperf 3.16 (cJSON 1.7.15)
+tcpdump version 4.99.4
+TShark (Wireshark) 4.2.2 (Git v4.2.2 packaged as 4.2.2-1.1build3).
+Nodos: network namespaces A, B, C; switch: Linux bridge; enlaces: veth sin límite de tasa

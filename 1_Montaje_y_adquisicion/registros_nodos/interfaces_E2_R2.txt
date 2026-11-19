@@ -1,0 +1,11 @@
+--- nodo A
+lo               UNKNOWN        127.0.0.1/8 
+eth0@if114       UP             192.168.50.11/24 
+
+--- nodo B
+lo               UNKNOWN        127.0.0.1/8 
+eth0@if116       UP             192.168.50.12/24 
+
+--- nodo C
+lo               UNKNOWN        127.0.0.1/8 
+eth0@if118       UP             192.168.50.13/24 

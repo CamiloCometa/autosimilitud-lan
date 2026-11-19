@@ -1,0 +1,5 @@
+run,udp_loss,capture_drops,notes
+E1_R1,0.000% (0/250000),0,red emulada (namespaces + bridge)
+E1_R2,0.000% (0/250000),0,red emulada (namespaces + bridge)
+E2_R1,A 0.000% (0/125001) / B 0.000% (0/114582),0,red emulada (namespaces + bridge)
+E2_R2,A 0.000% (0/112499) / B 0.000% (0/117085),0,red emulada (namespaces + bridge)

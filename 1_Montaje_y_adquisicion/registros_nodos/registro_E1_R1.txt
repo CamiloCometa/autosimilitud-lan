@@ -1,0 +1,41 @@
+[23:28:41] creando topología: 3 hosts + switch (bridge)
+$ ip link add bre1r1 type bridge
+$ ip link set bre1r1 up
+$ ip netns add e1r1a
+$ ip link add e1r1a type veth peer name e1r1a-s
+$ ip link set e1r1a netns e1r1a
+$ ip link set e1r1a-s master bre1r1
+$ ip link set e1r1a-s up
+$ [A] ip link set e1r1a name eth0
+$ [A] ip addr add 192.168.50.11/24 dev eth0
+$ [A] ip link set eth0 up
+$ [A] ip link set lo up
+$ ip netns add e1r1b
+$ ip link add e1r1b type veth peer name e1r1b-s
+$ ip link set e1r1b netns e1r1b
+$ ip link set e1r1b-s master bre1r1
+$ ip link set e1r1b-s up
+$ [B] ip link set e1r1b name eth0
+$ [B] ip addr add 192.168.50.12/24 dev eth0
+$ [B] ip link set eth0 up
+$ [B] ip link set lo up
+$ ip netns add e1r1c
+$ ip link add e1r1c type veth peer name e1r1c-s
+$ ip link set e1r1c netns e1r1c
+$ ip link set e1r1c-s master bre1r1
+$ ip link set e1r1c-s up
+$ [C] ip link set e1r1c name eth0
+$ [C] ip addr add 192.168.50.13/24 dev eth0
+$ [C] ip link set eth0 up
+$ [C] ip link set lo up
+$ [A] ping -c 5 -i 0.2 192.168.50.13
+$ [B] ping -c 5 -i 0.2 192.168.50.13
+$ [A] ip -br addr
+$ [B] ip -br addr
+$ [C] ip -br addr
+$ [C] iperf3 -s -p 5201
+$ [C] iperf3 -s -p 5202
+$ [C] tcpdump -i eth0 -nn -s 128 -w E1_R1.pcap 'udp and dst host 192.168.50.13 and (dst port 5201 or dst port 5202)'
+[23:28:46] E1: inicio (reloj de C) 1795062526.705759287; A envía 600 s a :5201
+$ [A] iperf3 -c 192.168.50.13 -p 5201 -u -b 4M -l 1200 -t 600 --json
+[23:38:49] E1: fin 1795063129.722624553; pérdida UDP 0/250000 (0 %); descartes de captura 0

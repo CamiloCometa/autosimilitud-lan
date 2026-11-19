@@ -1,0 +1,74 @@
+{
+  "generated_utc": "2026-11-19T05:01:15+00:00",
+  "config": {
+    "window_s": 600.0,
+    "base_delta_s": 0.05,
+    "robust_delta_s": 0.1,
+    "scales": [
+      1,
+      2,
+      4,
+      8,
+      16,
+      32,
+      64,
+      128,
+      256
+    ],
+    "min_blocks": 30,
+    "min_fit_scales": 4,
+    "max_rmse_dex": 0.03,
+    "max_local_slope_dev": 0.2,
+    "r2_min": null,
+    "fit_range_s": null,
+    "n_perm": 30,
+    "seed": 20261118,
+    "ts_resolutions_s": [
+      0.05,
+      0.4,
+      3.2
+    ],
+    "on_gap_merge_s": 0.5,
+    "nominal_frame_rate_Bps": 517500.0,
+    "dpi": 300,
+    "formats": [
+      "png",
+      "pdf"
+    ],
+    "deltas": [
+      0.05,
+      0.1
+    ]
+  },
+  "seed_derivation": "SeedSequence([seed_base, crc32('<run>|<serie>|<Δ con 2 decimales>')])",
+  "inputs": [
+    {
+      "file": "E1_R1.csv",
+      "sha256": "d77bcf11a7f8936de4e8eeb1bb1726202e14fd266db7f9c483f7f3ab77054ff2"
+    },
+    {
+      "file": "E1_R2.csv",
+      "sha256": "f02ff01310fb3ba2478a54285da095195baf7d0c747f5286a505175b723adbd7"
+    },
+    {
+      "file": "E2_R1.csv",
+      "sha256": "1e2fc5134504171452ad894f20c471dbfa2b5b6da442e2686da652e29b732c63"
+    },
+    {
+      "file": "E2_R2.csv",
+      "sha256": "e0a142b8cd1d44ff76b13892fdb9d224a7b074653509d8cf5009932defcb45de"
+    }
+  ],
+  "auxiliary": {
+    "windows": "data/meta/windows.csv",
+    "schedule": "data/meta/schedule.csv",
+    "meta": "data/meta/runs.csv"
+  },
+  "versions": {
+    "python": "3.13.18",
+    "numpy": "2.5.3",
+    "pandas": "3.0.5",
+    "scipy": "1.18.1",
+    "matplotlib": "3.11.2"
+  }
+}
