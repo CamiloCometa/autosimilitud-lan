@@ -1,5 +1,6 @@
 # Autosimilitud en trazas de tráfico LAN
-Ivan Camilo-Francisco Morales
+**Autores:** Ivan Camilo Cometa y Francisco Morales — Programa de Ciencias de la Computación e Inteligencia Artificial, Universidad Sergio Arboleda, Bogotá D.C.
+
 Entrega del taller "Autosimilitud en trazas de tráfico LAN": captura de tráfico UDP en una LAN de tres nodos
 (**emulada**: network namespaces de Linux + bridge, como Mininet), estimación del parámetro de Hurst por
 varianza agregada, control por 30 permutaciones, robustez (Δ = 0.10 s y dos repeticiones) y periodicidad.
